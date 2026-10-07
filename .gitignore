@@ -1,0 +1,16 @@
+# Credenciales de la base de datos (la plantilla es includes/config.example.php)
+includes/config.php
+.env
+.env.*
+!.env.example
+
+error_log
+*.log
+
+# Fotos subidas desde el panel (se conserva el .htaccess de seguridad)
+uploads/*
+!uploads/.htaccess
+!uploads/.gitkeep
+
+.DS_Store
+Thumbs.db

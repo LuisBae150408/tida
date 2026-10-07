@@ -1,0 +1,93 @@
+
+
+
+/* ============================================================
+   FUENTES
+   -----------------------------------------------------------
+   Space Grotesk y Sloop Script son las fuentes reales del cliente
+   (archivos en ../assets/fonts). Montserrat y HK Grotesk aún no se
+   han entregado: Montserrat se carga real desde Google Fonts (ver
+   el <link> con preconnect en el <head> de cada página — cargarla
+   por @import aquí retrasa el render porque el navegador tiene que
+   descargar primero este archivo entero antes de darse cuenta de
+   que necesita pedirla); HK Grotesk cae a Work Sans hasta que
+   llegue el archivo.
+   ============================================================ */
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('../fonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype-variations'),
+       url('../fonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
+  font-weight: 300 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Sloop Script';
+  src: url('../fonts/sloop-script.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face { font-family:'HK Grotesk'; src:url('../fonts/HKGrotesk-Regular.woff2') format('woff2'); font-weight:400; font-display:swap; }
+@font-face { font-family:'HK Grotesk'; src:url('../fonts/HKGrotesk-Medium.woff2') format('woff2'); font-weight:500; font-display:swap; }
+
+/* Agrandir — para la mitad inferior en bold caps de los títulos de
+   categoría (el mismo tratamiento del menú original de Instagram).
+   TextBold es el peso que más se acerca al grosor de "CLÁSICOS" en
+   la referencia; Regular queda disponible por si se necesita en otro
+   lado más liviano. */
+@font-face {
+  font-family: 'Agrandir';
+  src: url('../fonts/Agrandir-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Agrandir';
+  src: url('../fonts/Agrandir-TextBold.otf') format('opentype');
+  font-weight: 700;
+  font-display: swap;
+}
+
+/* ============================================================
+   TOKENS — paleta oficial Tida (Pantone 7505C / 4525C / 5555C / 432C)
+   ============================================================ */
+:root {
+  --taupe: #b49c87;   /* Pantone 7505 C */
+  --tan:   #d1c49b;   /* Pantone 4525 C */
+  --sage:  #5a7f71;   /* Pantone 5555 C */
+  --navy:  #313c4c;   /* Pantone 432 C  */
+
+  --sage-deep: #46604f;
+  --navy-deep: #232b37;
+  --taupe-deep: #97806c;
+
+  --cream: #faf7f0;
+  --paper: #fffdf9;
+  --ink: #2c2822;
+
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-script: 'Sloop Script', cursive;
+  --font-agrandir: 'Agrandir', sans-serif;
+  --font-body: 'HK Grotesk', 'Work Sans', sans-serif;
+  --font-label: 'Montserrat', 'Work Sans', sans-serif;
+
+  --radius-lg: 26px;
+  --radius-md: 14px;
+  --shadow-soft: 0 14px 34px -22px rgba(49, 60, 76, 0.4);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+body.no-scroll { overflow: hidden; }
+img, svg { display: block; max-width: 100%; }
+button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+h1, h2, h3, p { margin: 0; }

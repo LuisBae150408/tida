@@ -1,0 +1,242 @@
+@import url('../../assets/css/tokens.css');
+
+/* ============================================================
+   LAYOUT GENERAL
+   ============================================================ */
+body.admin-body { background: var(--cream); min-height: 100vh; }
+
+.admin-shell { display: flex; min-height: 100vh; }
+
+.admin-sidebar {
+  flex: 0 0 220px;
+  background: linear-gradient(180deg, var(--navy), var(--navy-deep));
+  color: var(--cream);
+  padding: 22px 16px;
+  display: flex; flex-direction: column;
+}
+.admin-brand { display: flex; align-items: center; gap: 10px; padding: 0 6px 22px; }
+.admin-brand img { width: 30px; }
+.admin-brand span {
+  font-family: var(--font-display); font-weight: 700; font-size: 14.5px;
+  letter-spacing: 0.02em; color: var(--cream);
+}
+.admin-nav { display: flex; flex-direction: column; gap: 3px; flex: 1; }
+.admin-nav a {
+  display: flex; align-items: center; gap: 10px;
+  padding: 11px 12px; border-radius: var(--radius-md);
+  color: rgba(250,247,240,0.78);
+  font-family: var(--font-label); font-size: 13px; font-weight: 600;
+  text-decoration: none;
+  transition: background 0.18s var(--ease), color 0.18s var(--ease);
+}
+.admin-nav a svg { width: 17px; height: 17px; flex: 0 0 auto; stroke: currentColor; }
+.admin-nav a:hover { background: rgba(250,247,240,0.08); color: var(--cream); }
+.admin-nav a.is-active { background: var(--sage); color: var(--cream); }
+.admin-sidebar-foot { padding-top: 14px; border-top: 1px solid rgba(250,247,240,0.12); }
+.admin-user { font-size: 11.5px; color: rgba(250,247,240,0.55); padding: 0 12px 8px; }
+.admin-logout {
+  display: flex; align-items: center; gap: 8px; width: 100%;
+  padding: 10px 12px; border-radius: var(--radius-md);
+  color: rgba(250,247,240,0.78); font-family: var(--font-label); font-size: 13px; font-weight: 600;
+  background: transparent; text-align: left;
+}
+.admin-logout:hover { background: rgba(250,247,240,0.08); color: var(--cream); }
+
+.admin-main { flex: 1; min-width: 0; padding: 28px 32px 60px; }
+.admin-topbar { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+.admin-title {
+  font-family: var(--font-agrandir); font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.02em; font-size: clamp(19px, 3vw, 24px); color: var(--navy);
+}
+.admin-subtitle { font-family: var(--font-body); font-size: 13.5px; color: rgba(44,40,34,0.6); margin-top: 3px; }
+
+/* ============================================================
+   ALERTAS / FLASH
+   ============================================================ */
+.admin-flash {
+  padding: 12px 16px; border-radius: var(--radius-md); margin-bottom: 18px;
+  font-family: var(--font-label); font-size: 13px; font-weight: 600;
+}
+.admin-flash.ok { background: rgba(90,127,113,0.14); color: var(--sage-deep); }
+.admin-flash.error { background: rgba(193,90,70,0.12); color: #a8402a; }
+
+/* ============================================================
+   TARJETAS / PANELES
+   ============================================================ */
+.admin-card {
+  background: var(--paper); border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft); border: 1px solid rgba(49,60,76,0.06);
+  padding: 22px 22px 26px; margin-bottom: 22px;
+}
+.admin-card-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+.admin-card-head h2 {
+  font-family: var(--font-display); font-weight: 700; font-size: 15.5px; color: var(--navy);
+}
+.admin-card-head p { font-size: 12.5px; color: rgba(44,40,34,0.55); margin-top: 2px; }
+
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; margin-bottom: 22px; }
+.stat-card {
+  background: var(--paper); border-radius: var(--radius-md); box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(49,60,76,0.06); padding: 18px;
+}
+.stat-card .stat-num { font-family: var(--font-display); font-weight: 700; font-size: 28px; color: var(--navy); }
+.stat-card .stat-label { font-family: var(--font-label); font-size: 12px; color: rgba(44,40,34,0.55); margin-top: 4px; }
+
+/* ============================================================
+   LISTAS EDITABLES (categorías / productos / descuentos)
+   ============================================================ */
+.admin-list { display: flex; flex-direction: column; }
+.admin-row {
+  display: flex; align-items: center; gap: 14px;
+  padding: 13px 6px; border-bottom: 1px solid rgba(49,60,76,0.08);
+}
+.admin-row:last-child { border-bottom: none; }
+.admin-row-media {
+  flex: 0 0 auto; width: 44px; height: 44px; border-radius: 50%;
+  background: linear-gradient(150deg, var(--tan), var(--taupe));
+  display: flex; align-items: center; justify-content: center; overflow: hidden;
+}
+.admin-row-media img { width: 100%; height: 100%; object-fit: cover; }
+.admin-row-media svg { width: 20px; height: 20px; stroke: var(--navy-deep); opacity: 0.65; }
+.admin-row-body { flex: 1; min-width: 0; }
+.admin-row-title { font-family: var(--font-display); font-weight: 700; font-size: 14px; color: var(--navy); }
+.admin-row-sub { font-size: 12.5px; color: rgba(44,40,34,0.58); margin-top: 2px; }
+.admin-row-tag {
+  font-family: var(--font-label); font-weight: 700; font-size: 10.5px; letter-spacing: 0.03em;
+  padding: 3px 9px; border-radius: 999px; background: var(--tan); color: var(--navy-deep);
+  white-space: nowrap;
+}
+.admin-row-tag.is-off { background: rgba(49,60,76,0.08); color: rgba(44,40,34,0.45); }
+.admin-row-actions { flex: 0 0 auto; display: flex; gap: 6px; }
+
+.btn-edit-toggle {
+  font-family: var(--font-label); font-weight: 700; font-size: 12px;
+  padding: 8px 14px; border-radius: 999px; border: 1.4px solid var(--navy); color: var(--navy);
+  background: transparent; transition: background 0.18s var(--ease), color 0.18s var(--ease);
+}
+.btn-edit-toggle:hover { background: var(--navy); color: var(--cream); }
+.btn-edit-toggle.is-active { background: var(--navy); color: var(--cream); }
+
+/* Barra editable — aparece justo debajo de la fila que se está editando */
+.edit-bar {
+  display: none; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px; background: var(--cream); border-radius: var(--radius-md);
+  padding: 16px; margin: 2px 0 12px;
+  border: 1px dashed rgba(49,60,76,0.18);
+}
+.edit-bar.is-open { display: grid; }
+.edit-bar .field-full { grid-column: 1 / -1; }
+.edit-bar-actions { grid-column: 1 / -1; display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; margin-top: 4px; }
+
+/* ============================================================
+   FORMULARIOS
+   ============================================================ */
+.field { display: flex; flex-direction: column; gap: 5px; }
+.field label {
+  font-family: var(--font-label); font-weight: 700; font-size: 11px;
+  letter-spacing: 0.03em; text-transform: uppercase; color: rgba(44,40,34,0.55);
+}
+.field input[type="text"], .field input[type="number"], .field input[type="password"],
+.field input[type="tel"], .field textarea, .field select {
+  font-family: var(--font-body); font-size: 13.5px; color: var(--ink);
+  border: 1.4px solid rgba(49,60,76,0.16); border-radius: var(--radius-md);
+  padding: 9px 12px; background: var(--paper); width: 100%;
+  transition: border-color 0.18s var(--ease);
+}
+.field input:focus, .field textarea:focus, .field select:focus {
+  outline: none; border-color: var(--sage);
+}
+.field textarea { resize: vertical; min-height: 64px; }
+.field-hint { font-size: 11px; color: rgba(44,40,34,0.45); }
+
+.field-file {
+  display: flex; align-items: center; gap: 10px;
+}
+.field-file img.preview {
+  width: 46px; height: 46px; border-radius: 50%; object-fit: cover;
+  border: 1.4px solid rgba(49,60,76,0.16);
+}
+
+/* Checkboxes "cute" — usados para días de la semana y toggles */
+.chip-check { display: inline-flex; flex-wrap: wrap; gap: 6px; }
+.chip-check input { position: absolute; opacity: 0; width: 0; height: 0; }
+.chip-check label {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 34px; height: 34px; border-radius: 50%;
+  font-family: var(--font-label); font-weight: 700; font-size: 11.5px;
+  background: var(--paper); border: 1.4px solid rgba(49,60,76,0.16); color: rgba(44,40,34,0.55);
+  cursor: pointer; text-transform: uppercase;
+  transition: background 0.18s var(--ease), color 0.18s var(--ease), border-color 0.18s var(--ease), transform 0.12s var(--ease);
+}
+.chip-check input:checked + label {
+  background: var(--sage); border-color: var(--sage); color: var(--cream); transform: scale(1.06);
+}
+.chip-check label:active { transform: scale(0.94); }
+
+.toggle-switch { display: inline-flex; align-items: center; gap: 9px; cursor: pointer; }
+.toggle-switch input { position: absolute; opacity: 0; width: 0; height: 0; }
+.toggle-switch .track {
+  width: 40px; height: 23px; border-radius: 999px; background: rgba(49,60,76,0.18);
+  position: relative; transition: background 0.2s var(--ease); flex: 0 0 auto;
+}
+.toggle-switch .track::after {
+  content: ''; position: absolute; top: 3px; left: 3px; width: 17px; height: 17px;
+  border-radius: 50%; background: var(--paper); transition: transform 0.2s var(--ease);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+}
+.toggle-switch input:checked + .track { background: var(--sage); }
+.toggle-switch input:checked + .track::after { transform: translateX(17px); }
+.toggle-switch .label-text { font-family: var(--font-label); font-size: 12.5px; font-weight: 600; color: var(--ink); }
+
+/* ============================================================
+   BOTONES
+   ============================================================ */
+.btn {
+  font-family: var(--font-label); font-weight: 700; font-size: 12.5px;
+  padding: 9px 18px; border-radius: 999px; border: none; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 6px; text-decoration: none;
+  transition: background 0.18s var(--ease), color 0.18s var(--ease), transform 0.12s var(--ease);
+}
+.btn:active { transform: scale(0.96); }
+.btn-save { background: var(--sage); color: var(--cream); }
+.btn-save:hover { background: var(--sage-deep); }
+.btn-danger { background: transparent; color: #a8402a; border: 1.4px solid rgba(168,64,42,0.4); }
+.btn-danger:hover { background: rgba(168,64,42,0.1); }
+.btn-discard { background: transparent; color: rgba(44,40,34,0.55); border: 1.4px solid rgba(49,60,76,0.16); }
+.btn-discard:hover { background: rgba(49,60,76,0.06); }
+.btn-primary-solid { background: var(--navy); color: var(--cream); }
+.btn-primary-solid:hover { background: var(--navy-deep); }
+
+/* ============================================================
+   LOGIN
+   ============================================================ */
+.login-shell {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px;
+  background: linear-gradient(160deg, var(--navy), var(--navy-deep));
+}
+.login-card {
+  width: 100%; max-width: 340px; background: var(--paper); border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft); padding: 32px 28px; text-align: center;
+}
+.login-card img { width: 46px; margin: 0 auto 14px; }
+.login-card h1 {
+  font-family: var(--font-agrandir); font-weight: 700; text-transform: uppercase;
+  font-size: 18px; color: var(--navy); letter-spacing: 0.02em;
+}
+.login-card p.sub { font-size: 12.5px; color: rgba(44,40,34,0.55); margin-top: 4px; margin-bottom: 22px; }
+.login-card form { display: flex; flex-direction: column; gap: 14px; text-align: left; }
+.login-card .btn-save { justify-content: center; margin-top: 4px; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 760px) {
+  .admin-shell { flex-direction: column; }
+  .admin-sidebar { flex: 0 0 auto; flex-direction: row; align-items: center; overflow-x: auto; padding: 12px 14px; gap: 6px; }
+  .admin-brand { padding: 0 10px 0 0; }
+  .admin-nav { flex-direction: row; flex: none; }
+  .admin-nav a span { display: none; }
+  .admin-nav a { padding: 9px; }
+  .admin-sidebar-foot { display: none; }
+  .admin-main { padding: 20px 16px 50px; }
+}
